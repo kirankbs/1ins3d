@@ -47,10 +47,34 @@ client.on('message', message => {
         client.commands.get('respawns').execute(message, args);
     } else if(command == 'squadwar'){
         client.commands.get('squadwar').execute(message, args);
+    } else if(command == 'warreport'){
+        client.commands.get('warreport').execute(message, args);
+    } else if(command == 'warcontri'){
+        client.commands.get('warcontri').execute(message, args);
+    } else if(command == 'autowelcome'){
+        client.commands.get('autowelcome').execute(message, args);
+    } else if(command == 'help'){
+        client.commands.get('help').execute(message, args);
+    } else if(command == 'tags'){
+        client.commands.get('tags').execute(message, args);
+    } else if(command == 'teamtag'){
+        client.commands.get('teamtag').execute(message, args);
+    } else if(command == 'team2tag'){
+        client.commands.get('team2tag').execute(message, args);
+    } else if(command == 'team3tag'){
+        client.commands.get('team3tag').execute(message, args);
+    } else if(command == 'signature'){
+        client.commands.get('signature').execute(message, args);
+    } else if(command == 'eventvote'){
+        client.commands.get('eventvote').execute(message, args);
+    } else if(command == 'congratz'){
+        client.commands.get('congratz').execute(message, args);
+    } else if(command == 'echobot'){
+        client.commands.get('echobot').execute(message, args);
     }
 });
 
 
 
 
-client.login('');
+client.login(process.env.TOKEN);
