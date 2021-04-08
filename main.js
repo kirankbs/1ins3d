@@ -1,12 +1,11 @@
-const dotenv = require('dotenv');
-dotenv.config();
+const config = require('./config.json');
 
 
 const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const prefix = '/';
+const prefix = config.prefix;
 
 const fs = require('fs');
 
@@ -75,10 +74,12 @@ client.on('message', message => {
         client.commands.get('congratz').execute(message, args);
     } else if(command == 'echobot'){
         client.commands.get('echobot').execute(message, args);
+    } else if(command == 'wc'){
+        client.commands.get('wc').execute(message, args);
     }
 });
 
 
 
 
-client.login(process.env.TOKEN);
+client.login(config.token);

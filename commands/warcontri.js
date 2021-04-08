@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
+const client = new Client();
 
 module.exports = {
     name: 'warcontri',
@@ -6,14 +8,13 @@ module.exports = {
         
         const embed = new Discord.MessageEmbed()
         .setTitle('Squad War Contributions!')
-        .setDescription('1M 👍 on score you are targetting')
+        .setFooter('👍 on score you are targetting')
         
-        const embed1 = new Discord.MessageEmbed()
-        .setDescription('750k 👍 on score you are targetting')
+    
 
         message.delete();
         message.channel.send(embed).then(embedMessage => {
-            embedMessage.channel.send(embed1);
+            embedMessage.react(':thumbsup:');
         });
     }
 
