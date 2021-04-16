@@ -6,7 +6,9 @@ module.exports = {
         
         const embed = new Discord.MessageEmbed()
         .setTitle('Available BOT commands')
-        .setDescription(`!msrchart - MSR Upgrade Chart
+        .setDescription(`
+        
+        !msrchart - MSR Upgrade Chart
 
         !challengechart - Arena Challange continue chart
         
@@ -34,7 +36,9 @@ module.exports = {
         
         !eventvote <Write any event name here> - Create voting event.
         
-        !eventwarn - It is general event warning anouncement to not open PvP Arena`)
+        !eventwarn - It is general event warning anouncement to not open PvP Arena
+        
+        !powerplay - Poll to play Power play or not`)
 
         message.delete();
         message.channel.send(embed);

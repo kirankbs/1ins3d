@@ -76,7 +76,11 @@ client.on('message', message => {
         client.commands.get('echobot').execute(message, args);
     } else if(command == 'wc'){
         client.commands.get('wc').execute(message, args);
-    }
+    } else if(command == 'eventwarn'){
+        client.commands.get('eventwarn').execute(message, args);
+    } else if(command == 'powerplay'){
+        client.commands.get('powerplay').execute(message, args);
+    } 
 });
 
 

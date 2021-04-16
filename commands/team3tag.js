@@ -5,8 +5,8 @@ module.exports = {
     execute(message, args){
         
         const embed = new Discord.MessageEmbed()
-        .setTitle('1st_indians Reserve Squad tag')
-        .setDescription('5ca30e86')
+        .setTitle('indians (rest squad) tag')
+        .setDescription('b3861585')
         .setFooter('Long press to copy');
 
         message.delete();
