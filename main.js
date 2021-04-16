@@ -34,7 +34,7 @@ client.on('message', message => {
     const   args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLocaleLowerCase();
 
-    console.log(command);
+    console.log(`User: ${message.author.username}, command: ${command}`);
 
     if(command === 'msrchart'){
         client.commands.get('msrchart').execute(message, args);
