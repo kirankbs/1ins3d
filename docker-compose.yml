@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  1ins3d:
+    image: 1ins3d
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production

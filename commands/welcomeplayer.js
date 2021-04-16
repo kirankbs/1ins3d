@@ -12,17 +12,16 @@ module.exports = {
         .setTitle('Welcome')
         .setColor('FF0000')
         .setDescription(`
-            $userInfo[] 
-            <@${targetMember.user.id}>! Welcome to the group chat of 1st_indians.
+        <@${targetMember.user.id}>! Welcome to the group chat of 1st_indians.
+        
+        To join us
+        You have to comply with certain requirements before joining this group, they are:
+        1. A latest screenshot of your game profile
+        2. Your game name
+        3. You have to state your age
+        4. You have to state your wirking field and approx locality
 
-            To join us
-            You have to comply with certain requirements before joining this group, they are:
-            1. A latest screenshot of your game profile
-            2. Your game name
-            3. You have to state your age
-            4. You have to state your wirking field and approx locality
-
-            If you want to join us, please comply with requirements and we will take you in`)
+        If you want to join us, please comply with requirements and we will take you in`)
         
     
 
@@ -31,9 +30,3 @@ module.exports = {
     }
 
 }
-
-
-
-
-//$if[$channelID==$getUserVar[NewEntries]] 
-
