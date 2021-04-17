@@ -47,7 +47,7 @@ client.on('message', message => {
     } else if(command == 'killchart'){
         client.commands.get('killchart').execute(message, args);
     } else if(command == 'respawns'){
-        client.commands.get('respawns').execute(message, args);
+        client.commands.get('respawns').execute(message, args, client);
     } else if(command == 'squadwar'){
         client.commands.get('squadwar').execute(message, args);
     } else if(command == 'warreport'){
@@ -80,7 +80,7 @@ client.on('message', message => {
         client.commands.get('eventwarn').execute(message, args);
     } else if(command == 'powerplay'){
         client.commands.get('powerplay').execute(message, args);
-    } 
+    } else client.commands.get('wrongcommand').execute(message, args);
 });
 
 
