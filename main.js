@@ -24,6 +24,9 @@ for(const file of commandFiles){
  */
 client.once('ready', () => {
     console.log('BOT is online!');
+    
+    //Scheduled Job
+    client.commands.get('tips').execute();
 });
 
 
@@ -35,6 +38,7 @@ client.on('message', message => {
     const command = args.shift().toLocaleLowerCase();
 
     console.log(`User: ${message.author.username}, command: ${command}`);
+    console.log(`Channel type: ${message.channel.type}`)
 
     if(command === 'msrchart'){
         client.commands.get('msrchart').execute(message, args);
