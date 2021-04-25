@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
-const client = new Client();
+const {MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'wc',
