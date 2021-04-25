@@ -4,7 +4,7 @@ module.exports = {
     name: 'echobot',
     execute(message, args){
         
-        const content = args[0] || '';
+        const content = args.join(' ') || '';
         const embed = new Discord.MessageEmbed()
         .setDescription(content);
 

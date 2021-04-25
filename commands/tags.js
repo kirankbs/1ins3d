@@ -6,13 +6,10 @@ module.exports = {
         
         const embed = new Discord.MessageEmbed()
         .setTitle('Squad tags')
-        .setDescription(`
-            indians 1¹ᶦᶰ : b04c97f6
-
-            indians 2 : e321eafb
-
-            1st_indians Reserve : 5ca30e86
-        `);
+        .setDescription(
+            "indians 1¹ᶦᶰ : b04c97f6"+
+            " \n\nindians 2 : 5ca30e86"+
+            "\n\n indians (rest squad) tag : b3861585");
 
         message.delete();
         message.channel.send(embed);
