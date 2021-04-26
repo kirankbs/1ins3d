@@ -26,7 +26,7 @@ client.once('ready', () => {
     console.log('BOT is online!');
     
     //Scheduled Job
-    client.commands.get('tips').execute(client);
+    //client.commands.get('tips').execute(client);
 });
 
 
