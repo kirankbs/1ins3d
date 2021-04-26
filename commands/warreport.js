@@ -17,21 +17,24 @@ module.exports = {
 
       if(args[0] == "latest") {
         const pos = (args[1] && Number(args[1]) > 1) ? (Number(args[1]) - 1) : 0
-        const {date, event, opps, score, image} = warreportjson[pos];
-        const [squadScoreR, opponentScoreR] = score.split('vs');
-        const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
-        const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
 
-        const result = squadScore > opponentScore ? "Victory" : "Defeat"
-        embed.setDescription(
-          `\ndate: ${date}`+
-          `\nevent: ${event}`+
-          `\nopps: ${opps}`+
-          `\nscore: ${score}`+
-          `\nresult: ${result}`
-          ).setImage(image)
+        if(warreportjson[pos]) {
+          const {date, event, opps, score, image} = warreportjson[pos];
+          const [squadScoreR, opponentScoreR] = score.split('vs');
+          const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
+          const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
 
-          message.channel.send(embed);
+          const result = squadScore > opponentScore ? "Victory" : "Defeat"
+          embed.setDescription(
+            `\ndate: ${date}`+
+            `\nevent: ${event}`+
+            `\nopps: ${opps}`+
+            `\nscore: ${score}`+
+            `\nresult: ${result}`
+            ).setImage(image)
+
+            message.channel.send(embed);
+          }
       }
     }
 
