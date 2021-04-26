@@ -35,14 +35,15 @@ module.exports = {
         const embed = new MessageEmbed().setTitle('Arena Tip!');
 
         const rule = new schedule.RecurrenceRule();
-        //rule.dayOfWeek = [0, new schedule.Range(5, 6)];
+        rule.dayOfWeek = [0, new schedule.Range(5, 6)];
         rule.hour = 4;
+        rule.minute = 0;
         rule.tz = 'Etc/UTC';
 
 
         const job = schedule.scheduleJob(rule, function () {
             const tip = embed.setDescription(tips[Math.floor(Math.random() * tips.length)]);
-            client.channels.cache.get('822837245651976195').send(tip);
+            client.channels.cache.get('828662590237835344').send(tip);
         });            
 
     }
