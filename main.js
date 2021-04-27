@@ -85,6 +85,8 @@ client.on('message', message => {
         client.commands.get('eventwarn').execute(message, args);
     } else if(command == 'powerplay'){
         client.commands.get('powerplay').execute(message, args);
+    } else if(command == 'ps'){
+        client.commands.get('ps').execute(message, args);
     } else client.commands.get('wrongcommand').execute(message, args);
 });
 
