@@ -36,6 +36,9 @@ module.exports = {
             message.channel.send(embed);
           }
       }
+      
+      if(args[0] == "last") {
+      }
     }
 
 }
