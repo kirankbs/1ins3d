@@ -6,6 +6,14 @@ function endsWith(str, suffix) {
   return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 
+function calculateWarResult(score) {
+  const [squadScoreR, opponentScoreR] = score.split('vs');
+  const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
+  const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
+
+  return squadScore > opponentScore ? "Victory" : "Defeat"
+}
+
 module.exports = {
     name: 'warreport',
     execute(message, args){
@@ -59,18 +67,20 @@ module.exports = {
 
       if(args[0] == "stats"){
 
-        const {score} = warreportjson[0];
-        const [squadScoreR, opponentScoreR] = score.split('vs');
-        const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
-        const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
-
-        const result = squadScore > opponentScore ? "Victory" : "Defeat"
+        const warResults = warreportjson.map(report => calculateWarResult(report.score));
+        const victories = warResults.filter(result => result == "Victory").length;
+        const defeats = warResults.filter(result => result == "Defeat").length;
 
         const chart = {
           type: 'pie',
           data: {
             labels: ['Victories', 'Defeats'],
-            datasets: [{data: [20, 30]}]
+            datasets: [{
+                label: 'Victories vs Defeats', 
+                data: [victories, defeats], 
+                backgroundColor: ['rgb(19,136,8)', 'rgb(255,153,51)'],
+                fontColor: 'red'
+              }]
           }
         }
 
