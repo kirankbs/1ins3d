@@ -1,5 +1,7 @@
 const config = require('./config.json');
 
+require('log-timestamp');
+
 
 const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
 
@@ -37,8 +39,7 @@ client.on('message', message => {
     const   args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLocaleLowerCase();
 
-    console.log(`User: ${message.author.username}, command: ${command}`);
-    console.log(`Channel type: ${message.channel.type}`)
+    console.log(`User: ${message.author.username}, Channel type: ${message.channel.type}, command: ${command}`);
 
     if(command === 'msrchart'){
         client.commands.get('msrchart').execute(message, args);
