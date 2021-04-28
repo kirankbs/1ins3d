@@ -23,7 +23,8 @@ module.exports = {
         '\n\n!eventvote <Write any event name here> - Create voting event.'+
         '\n\n!eventwarn - It is general event warning anouncement to not open PvP Arena'+
         '\n\n!powerplay - Poll to play Power play or not'+
-        '\n\n!warreport latest 1 - Latest war report is shown. Number can be increased to show older report. e.x:- !warreport latest 2 shows 2nd last report.'
+        '\n\n!warreport latest 1 - Latest war report is shown. Number can be increased to show older report. e.x:- !warreport latest 2 shows 2nd last report.'+
+        '\n\n!warreport [latest | closest | farthest] - Relevent war report will be shown.'
         )
 
         message.delete();
