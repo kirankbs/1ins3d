@@ -14,6 +14,14 @@ function calculateWarResult(score) {
   return squadScore > opponentScore ? "Victory" : "Defeat"
 }
 
+function differenceInScore(score) {
+  const [squadScoreR, opponentScoreR] = score.split('vs');
+  const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
+  const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
+
+  return squadScore > opponentScore ? squadScore - opponentScore : opponentScore - squadScore
+}
+
 module.exports = {
     name: 'warreport',
     execute(message, args){
@@ -63,7 +71,61 @@ module.exports = {
 
       if(args[0] == "opslowest"){}
 
-      if(args[0] == "closest"){}
+      if(args[0] == "farthest"){
+        
+        const scoreDifferences = warreportjson.map(report => {
+          const reportWithDifference = {report: report, difference: differenceInScore(report.score)};
+          return reportWithDifference;
+        });
+
+        const closestWar = scoreDifferences.reduce(
+          (prev, curr) => (prev.difference > curr.difference) ? prev : curr);
+
+        const {date, event, opps, score, image} = closestWar.report
+
+        const [squadScoreR, opponentScoreR] = score.split('vs');
+        const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
+        const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
+
+        const result = squadScore > opponentScore ? "Victory" : "Defeat"
+        embed.setDescription(
+          `\ndate: ${date}`+
+          `\nevent: ${event}`+
+          `\nopps: ${opps}`+
+          `\nscore: ${score}`+
+          `\nresult: ${result}`
+          ).setImage(image)
+
+          message.channel.send(embed);        
+      }
+
+      if(args[0] == "closest"){
+        
+        const scoreDifferences = warreportjson.map(report => {
+          const reportWithDifference = {report: report, difference: differenceInScore(report.score)};
+          return reportWithDifference;
+        });
+
+        const closestWar = scoreDifferences.reduce(
+          (prev, curr) => (prev.difference < curr.difference) ? prev : curr);
+
+        const {date, event, opps, score, image} = closestWar.report
+
+        const [squadScoreR, opponentScoreR] = score.split('vs');
+        const squadScore = squadScoreR.trim().slice(-1) == "M" ? Number(squadScoreR.trim().slice(0, -1)) * 1000000 : Number(squadScoreR.trim().slice(0, -1)) * 1000;
+        const opponentScore = opponentScoreR.trim().slice(-1) == "M" ? Number(opponentScoreR.trim().slice(0, -1)) * 1000000 : Number(opponentScoreR.trim().slice(0, -1)) * 1000;
+
+        const result = squadScore > opponentScore ? "Victory" : "Defeat"
+        embed.setDescription(
+          `\ndate: ${date}`+
+          `\nevent: ${event}`+
+          `\nopps: ${opps}`+
+          `\nscore: ${score}`+
+          `\nresult: ${result}`
+          ).setImage(image)
+
+          message.channel.send(embed);        
+      }
 
       if(args[0] == "stats"){
 
