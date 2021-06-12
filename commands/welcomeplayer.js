@@ -10,7 +10,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setTitle('Welcome')
         .setDescription(
-        `<@${targetMember.user.id}>! Welcome to the group chat of 1st_indians.`+
+        `<@${targetMember.user.id}>! Welcome to the group chat of indians 1¹ᶦᶰ.`+
         "\n\nTo join us"+
         "\nYou have to comply with certain requirements before joining this group, they are:"+
         "\n1. A latest screenshot of your game profile"+
