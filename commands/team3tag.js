@@ -9,7 +9,7 @@ module.exports = {
         .setDescription('b3861585')
         .setFooter('Long press to copy');
 
-        message.delete();
+        //message.delete();
         message.channel.send(embed);
     }
 

@@ -8,10 +8,10 @@ module.exports = {
         .setTitle('Squad tags')
         .setDescription(
             "indians 1¹ᶦᶰ : b04c97f6"+
-            " \n\nindians 2 : 5ca30e86"+
+            " \n\indians 1¹ᶦᶰ 2 : 5ca30e86"+
             "\n\n indians (rest squad) tag : b3861585");
 
-        message.delete();
+        //message.delete();
         message.channel.send(embed);
     }
 
